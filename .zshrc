@@ -109,7 +109,7 @@ bindkey '^r' __fzf_history__
 # tmux
 if [[ ! -n $TMUX && $- == *l* ]]; then
   # get the IDs
-  ID="`tmux list-sessions`"
+  ID="`tmux list-sessions 2>/dev/null`"
   if [[ -z "$ID" ]]; then
     tmux new-session
   fi
