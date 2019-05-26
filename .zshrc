@@ -126,5 +126,11 @@ if [[ ! -n $TMUX && $- == *l* ]]; then
   fi
 fi
 
+# C-s のスクリーンロックを無効化
+if [[ -t 0 ]]; then
+  stty stop undef
+  stty start undef
+fi
+
 rehash
 
