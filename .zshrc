@@ -1,3 +1,5 @@
+[[ -v WSLENV ]] && export SHELL=/bin/zsh
+
 [ -f ~/.localrc ] && source ~/.localrc
 
 alias ls='ls --color=auto'
