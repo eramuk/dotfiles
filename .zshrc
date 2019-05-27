@@ -1,3 +1,5 @@
+[ -f ~/.localrc ] && source ~/.localrc
+
 alias ls='ls --color=auto'
 alias ll='ls -la'
 alias less='less -i -R'
