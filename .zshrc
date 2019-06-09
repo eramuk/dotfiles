@@ -162,6 +162,24 @@ if [[ ! -n $TMUX && $- == *l* ]]; then
   fi
 fi
 
+# tmux で自動ロギング
+if [[ $TERM = screen ]] || [[ $TERM = screen-256color ]] ; then
+  local LOGDIR=$HOME/.tmux_logs
+  local LOGFILE=$(hostname)_$(date +%Y-%m-%d_%H%M%S_%N.log)
+  local FILECOUNT=0
+  local MAXFILECOUNT=500 #保存数
+  [ ! -d $LOGDIR ] && mkdir -p $LOGDIR
+  for file in `\find "$LOGDIR" -maxdepth 1 -type f -name "*.log" | sort --reverse`; do
+    FILECOUNT=`expr $FILECOUNT + 1`
+    if [ $FILECOUNT -ge $MAXFILECOUNT ]; then
+      rm -f $file
+    fi
+  done
+  tmux set-option default-terminal "screen" \; \
+    pipe-pane "cat >> $LOGDIR/$LOGFILE" #\; \
+    #display-message "💾Started logging to $LOGDIR/$LOGFILE"
+fi
+
 # C-s のスクリーンロックを無効化
 if [[ -t 0 ]]; then
   stty stop undef
