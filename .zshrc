@@ -92,9 +92,6 @@ eval "$(anyenv init - --no-rehash zsh)"
 export EDITOR=vim
 eval "$(direnv hook zsh)"
 
-# nodebrew
-export PATH="$HOME/.nodebrew/current/bin:$PATH"
-
 # mysql
 export PATH="/usr/local/opt/mysql@5.7/bin/:$PATH"
 
