@@ -175,6 +175,7 @@ if [[ $TERM = screen ]] || [[ $TERM = screen-256color ]] ; then
   tmux set-option default-terminal "screen" \; \
     pipe-pane "cat >> $LOGDIR/$LOGFILE" #\; \
     #display-message "Started logging to $LOGDIR/$LOGFILE"
+  export TMUX_LOG=$LOGDIR/$LOGFILE
 fi
 
 # C-s のスクリーンロックを無効化
