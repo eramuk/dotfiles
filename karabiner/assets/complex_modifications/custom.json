@@ -2,6 +2,30 @@
   "title": "Windows と Mac の中間",
   "rules": [
     {
+      "description": "control + 2 -> '",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "7",
+              "modifiers": [
+                "shift"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "right_command + j -> control + j",
       "manipulators": [
         {
