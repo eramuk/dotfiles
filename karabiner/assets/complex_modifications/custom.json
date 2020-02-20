@@ -270,9 +270,9 @@
           ],
           "conditions": [
             {
-              "type": "frontmost_application_unless",
+              "type": "frontmost_application_if",
               "bundle_identifiers": [
-                "^com\\.googlecode\\.iterm2"
+                "com.microsoft.VSCode"
               ]
             }
           ]
@@ -299,9 +299,9 @@
           ],
           "conditions": [
             {
-              "type": "frontmost_application_unless",
+              "type": "frontmost_application_if",
               "bundle_identifiers": [
-                "^com\\.googlecode\\.iterm2"
+                "com.microsoft.VSCode"
               ]
             }
           ]
