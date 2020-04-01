@@ -283,6 +283,54 @@
           ]
         }
       ]
+    },
+    {
+      "description": "control + insert -> copy",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "insert",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "c",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "shift + insert -> paste",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "insert",
+            "modifiers": {
+              "mandatory": [
+                "shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "v",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }
