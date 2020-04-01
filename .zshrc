@@ -11,6 +11,9 @@ alias less='less -i -R'
 autoload -U compinit
 compinit
 
+# C-d で終了しない
+set -o ignoreeof
+
 # ls の色
 export LSCOLORS=gxfxcxdxbxegedabagacag
 export LS_COLORS='ow=1;34'
