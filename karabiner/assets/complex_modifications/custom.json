@@ -356,17 +356,20 @@
               "key_code": "lang2"
             },
             {
-              "key_code": "quote",
-              "modifiers": [
-                "shift"
-              ]
+              "key_code": "b"
+            },
+            {
+              "key_code": "m"
+            },
+            {
+              "key_code": "spacebar"
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_if",
               "bundle_identifiers": [
-                "org.mozilla.firefox"
+                "com.google.Chrome"
               ]
             }
           ]
