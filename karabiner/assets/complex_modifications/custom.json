@@ -2,6 +2,100 @@
   "title": "Windows と Mac の中間",
   "rules": [
     {
+      "description": "kana + okl; -> arrow",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "japanese_kana"
+          },
+          "to": [{
+            "set_variable": {
+              "name": "kana",
+              "value": 1
+            }
+          }],
+          "to_after_key_up": [{
+            "set_variable": {
+              "name": "kana",
+              "value": 0
+            }
+          }],
+          "to_if_alone": [{ 
+            "key_code": "japanese_kana"
+          }]
+        },
+        {
+          "type": "basic",
+          "from": { 
+            "key_code": "o",
+            "modifiers":{
+              "optional": ["any"]
+            }
+          },
+          "to": [{ 
+            "key_code": "up_arrow"
+          }],
+          "conditions": [{ 
+            "type": "variable_if", 
+            "name": "kana", 
+            "value": 1
+          }]
+        },
+        {
+          "type": "basic",
+          "from": { 
+            "key_code": "k",
+            "modifiers":{
+              "optional": ["any"]
+            }
+          },
+          "to": [{ 
+            "key_code": "left_arrow"
+          }],
+          "conditions": [{ 
+            "type": "variable_if", 
+            "name": "kana", 
+            "value": 1
+          }]
+        },
+        {
+          "type": "basic",
+          "from": { 
+            "key_code": "l",
+            "modifiers":{
+              "optional": ["any"]
+            }
+          },
+          "to": [{ 
+            "key_code": "down_arrow"
+          }],
+          "conditions": [{ 
+            "type": "variable_if", 
+            "name": "kana", 
+            "value": 1
+          }]
+        },
+        {
+          "type": "basic",
+          "from": { 
+            "key_code": "semicolon",
+            "modifiers":{
+              "optional": ["any"]
+            }
+          },
+          "to": [{ 
+            "key_code": "right_arrow"
+          }],
+          "conditions": [{ 
+            "type": "variable_if", 
+            "name": "kana", 
+            "value": 1
+          }]
+        }
+      ]
+    },
+    {
       "description": "control + j -> enter",
       "manipulators": [
         {
