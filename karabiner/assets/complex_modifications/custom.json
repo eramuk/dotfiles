@@ -7,7 +7,10 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "japanese_kana"
+            "key_code": "japanese_kana",
+            "modifiers":{
+              "optional": ["any"]
+            }
           },
           "to": [{
             "set_variable": {
