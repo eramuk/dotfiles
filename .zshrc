@@ -14,6 +14,12 @@ compinit
 # C-d で終了しない
 set -o ignoreeof
 
+# 区切り文字
+autoload -Uz select-word-style
+select-word-style default
+zstyle ':zle:*' word-chars ' /=;@:{}[]()<>,|.'
+zstyle ':zle:*' word-style unspecified
+
 # ls の色
 export LSCOLORS=gxfxcxdxbxegedabagacag
 export LS_COLORS='ow=1;34'
