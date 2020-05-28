@@ -330,7 +330,7 @@
           },
           "to": [{
             "key_code": "c",
-            "modifiers": ["left_command"]
+            "modifiers": ["command"]
           }]
         },
         {
@@ -342,9 +342,46 @@
           "to": [{
             "key_code": "v",
             "modifiers": [
-              "left_command"
+              "command"
             ]}
           ]
+        }
+      ]
+    },
+    {
+      "description": "PC Keys",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "print_screen",
+            "modifiers": { "optional": ["control"] }
+          },
+          "to": [{
+            "key_code": "4",
+            "modifiers": ["command", "shift"]
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "pause"
+          },
+          "to": [{
+            "key_code": "q",
+            "modifiers": ["command", "control"]
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "pause",
+            "modifiers": { "mandatory": ["control"] }
+          },
+          "to": [{
+            "key_code": "eject",
+            "modifiers": ["command", "option"]
+          }]
         }
       ]
     },
@@ -358,7 +395,7 @@
             "modifiers": { "mandatory": ["control"] }
           },
           "to": [
-            { "key_code": "l", "modifiers": ["left_command"] },
+            { "key_code": "l", "modifiers": ["command"] },
             { "key_code": "japanese_eisuu" },
             { "key_code": "b" },
             { "key_code": "m" },
