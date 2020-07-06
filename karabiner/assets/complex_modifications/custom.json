@@ -15,7 +15,7 @@
           }],
           "conditions": [{
             "type": "frontmost_application_unless",
-            "bundle_identifiers": ["com.googlecode.iterm2"]
+            "bundle_identifiers": ["com.apple.Terminal"]
           }]
         },
         {
@@ -29,7 +29,7 @@
           }],
           "conditions": [{
             "type": "frontmost_application_if",
-            "bundle_identifiers": ["com.googlecode.iterm2"]
+            "bundle_identifiers": ["com.apple.Terminal"]
           }]
         }
       ]
@@ -399,7 +399,7 @@
             "modifiers": { "mandatory": ["control"] }
           },
           "to": [{
-            "shell_command": "open -a 'iTerm'"
+            "shell_command": "open -a 'Terminal.app'"
           }]
         },
         {

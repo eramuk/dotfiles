@@ -8,6 +8,9 @@ alias ls='ls --color=auto'
 alias ll='ls -la'
 alias less='less -i -R'
 
+alias dc='docker-compose'
+alias dce='docker-compose exec'
+
 autoload -U compinit
 compinit
 
