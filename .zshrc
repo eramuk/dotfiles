@@ -11,6 +11,8 @@ alias less='less -i -R'
 alias dc='docker-compose'
 alias dce='docker-compose exec'
 
+alias kk="ps -e | grep '[ K]ensingtonWorks' | awk '{print \$1}' | xargs kill"
+
 autoload -U compinit
 compinit
 
