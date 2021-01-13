@@ -85,7 +85,7 @@ case ${OSTYPE} in
 esac
 
 # history
-export HISTFILE=${HOME}/.zsh_history
+export HISTFILE=~/.zsh_history
 export HISTSIZE=50000
 export SAVEHIST=50000
 setopt hist_ignore_dups
