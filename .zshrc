@@ -16,6 +16,9 @@ alias kk="ps -e | grep '[ K]ensingtonWorks' | awk '{print \$1}' | xargs kill"
 autoload -U compinit
 compinit
 
+# 履歴の共有
+setopt share_history
+
 # C-d で終了しない
 set -o ignoreeof
 
