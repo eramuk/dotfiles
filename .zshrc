@@ -2,7 +2,7 @@
 
 bindkey -e
 
-[ -f ~/.localrc ] && source ~/.localrc
+[[ -f ~/.localrc ]] && source ~/.localrc
 
 alias ls='ls --color=auto'
 alias ll='ls -la'
@@ -10,8 +10,6 @@ alias less='less -i -R'
 
 alias dc='docker-compose'
 alias dce='docker-compose exec'
-
-alias kk="ps -e | grep '[ K]ensingtonWorks' | awk '{print \$1}' | xargs kill"
 
 autoload -U compinit
 compinit
@@ -97,10 +95,6 @@ setopt EXTENDED_HISTORY
 # enable comment in command line
 setopt interactivecomments
 
-# coreutils
-export PATH=/usr/local/opt/coreutils/libexec/gnubin:${PATH}
-export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}
-
 # anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init - --no-rehash zsh)"
@@ -108,9 +102,6 @@ eval "$(anyenv init - --no-rehash zsh)"
 # direnv
 export EDITOR=vim
 eval "$(direnv hook zsh)"
-
-# mysql
-export PATH="/usr/local/opt/mysql@5.7/bin/:$PATH"
 
 # golang
 export GOPATH="$HOME/go"
