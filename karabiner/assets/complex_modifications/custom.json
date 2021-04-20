@@ -126,10 +126,6 @@
           },
           "to": [{
             "key_code": "home"
-          }],
-          "conditions": [{
-            "type": "frontmost_application_if",
-            "bundle_identifiers": ["com.microsoft.VSCode"]
           }]
         },
         {
@@ -140,10 +136,6 @@
           },
           "to": [{
             "key_code": "end"
-          }],
-          "conditions": [{
-            "type": "frontmost_application_if",
-            "bundle_identifiers": ["com.microsoft.VSCode"]
           }]
         }
       ]
@@ -183,13 +175,25 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "print_screen",
-            "modifiers": { "optional": ["control"] }
+            "key_code": "print_screen"
           },
           "to": [{
             "key_code": "4",
-            "modifiers": ["command", "shift"]
+            "modifiers": ["command", "shift", "control"]
           }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "print_screen",
+            "modifiers": { "optional": ["shift"] }
+          },
+          "to": [
+            {
+              "key_code": "4",
+              "modifiers": ["command", "shift"]
+            }
+          ]
         },
         {
           "type": "basic",
@@ -205,7 +209,7 @@
           "type": "basic",
           "from": {
             "key_code": "pause",
-            "modifiers": { "mandatory": ["control"] }
+            "modifiers": { "mandatory": ["shift"] }
           },
           "to": [{
             "key_code": "eject",
