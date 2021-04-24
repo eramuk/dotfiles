@@ -1,6 +1,8 @@
 [[ -v WSLENV ]] && export SHELL=/bin/zsh
 
 bindkey -e
+bindkey '\e[1~' beginning-of-line
+bindkey '\e[4~' end-of-line
 
 [[ -f ~/.localrc ]] && source ~/.localrc
 
