@@ -141,8 +141,34 @@
       ]
     },
     {
-      "description": "Ctrl/Shift + Insert -> Copy/Paste",
+      "description": "Copy & Paste",
       "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "c",
+            "modifiers": { "mandatory": ["control"] }
+          },
+          "to": [{
+            "key_code": "c",
+            "modifiers": ["command"]
+          }],
+          "conditions": [{
+            "type": "frontmost_application_unless",
+            "bundle_identifiers": ["com.apple.Terminal"]
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": { "mandatory": ["control"] }
+          },
+          "to": [{
+            "key_code": "v",
+            "modifiers": ["command"]
+          }]
+        },
         {
           "type": "basic",
           "from": {
