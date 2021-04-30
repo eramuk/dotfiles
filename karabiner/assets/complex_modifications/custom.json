@@ -340,6 +340,20 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "l",
+            "modifiers": { "mandatory": ["control"] }
+          },
+          "to": [
+            { "key_code": "l", "modifiers": ["command"] }
+          ],
+          "conditions": [{
+            "type": "frontmost_application_if",
+            "bundle_identifiers": ["com.google.Chrome"]
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "q",
             "modifiers": { "mandatory": ["control"] }
           },
@@ -349,6 +363,34 @@
             { "key_code": "b" },
             { "key_code": "m" },
             { "key_code": "spacebar" }
+          ],
+          "conditions": [{
+            "type": "frontmost_application_if",
+            "bundle_identifiers": ["com.google.Chrome"]
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "r",
+            "modifiers": { "mandatory": ["control"] }
+          },
+          "to": [
+            { "key_code": "r", "modifiers": ["command"] }
+          ],
+          "conditions": [{
+            "type": "frontmost_application_if",
+            "bundle_identifiers": ["com.google.Chrome"]
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "w",
+            "modifiers": { "mandatory": ["control"] }
+          },
+          "to": [
+            { "key_code": "w", "modifiers": ["command"] }
           ],
           "conditions": [{
             "type": "frontmost_application_if",
