@@ -79,7 +79,7 @@
           }],
           "conditions": [{
             "type": "frontmost_application_if",
-            "bundle_identifiers": ["com.apple.Terminal"]
+            "bundle_identifiers": ["com.apple.Terminal", "com.microsoft.VSCode"]
           }]
         },
         {
@@ -118,7 +118,7 @@
           }],
           "conditions": [{
             "type": "frontmost_application_if",
-            "bundle_identifiers": ["com.apple.Terminal"]
+            "bundle_identifiers": ["com.apple.Terminal", "com.microsoft.VSCode"]
           }]
         },
         {
