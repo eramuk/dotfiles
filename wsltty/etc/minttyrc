@@ -1,3 +1,0 @@
-# workaround: https://github.com/mintty/wsltty/issues/133
-# %LOCALAPPDATA%wsltty\etc\minttyrc に置く
-SuppressDEC=12
