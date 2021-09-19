@@ -79,7 +79,7 @@
           }],
           "conditions": [{
             "type": "frontmost_application_if",
-            "bundle_identifiers": ["com.apple.Terminal"]
+            "bundle_identifiers": ["com.apple.Terminal", "com.microsoft.VSCode"]
           }]
         },
         {
@@ -118,7 +118,7 @@
           }],
           "conditions": [{
             "type": "frontmost_application_if",
-            "bundle_identifiers": ["com.apple.Terminal"]
+            "bundle_identifiers": ["com.apple.Terminal", "com.microsoft.VSCode"]
           }]
         },
         {
@@ -299,7 +299,7 @@
             "modifiers": { "mandatory": ["control"] }
           },
           "to": [{
-            "shell_command": "open -a 'slack'"
+            "shell_command": "open -a 'Google Chrome'"
           }]
         },
         {
@@ -309,7 +309,7 @@
             "modifiers": { "mandatory": ["control"] }
           },
           "to": [{
-            "shell_command": "open -a 'Google Chrome'"
+            "shell_command": "open -a 'Visual Studio Code'"
           }]
         },
         {
@@ -329,7 +329,7 @@
             "modifiers": { "mandatory": ["control"] }
           },
           "to": [{
-            "shell_command": "open -a 'Visual Studio Code 2'"
+            "shell_command": "open -a 'Slack.app'"
           }]
         }
       ]
@@ -337,6 +337,20 @@
     {
       "description": "Google Chrome Shortcut",
       "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": { "mandatory": ["control"] }
+          },
+          "to": [
+            { "key_code": "l", "modifiers": ["command"] }
+          ],
+          "conditions": [{
+            "type": "frontmost_application_if",
+            "bundle_identifiers": ["com.google.Chrome"]
+          }]
+        },
         {
           "type": "basic",
           "from": {
@@ -349,6 +363,48 @@
             { "key_code": "b" },
             { "key_code": "m" },
             { "key_code": "spacebar" }
+          ],
+          "conditions": [{
+            "type": "frontmost_application_if",
+            "bundle_identifiers": ["com.google.Chrome"]
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "r",
+            "modifiers": { "mandatory": ["control"] }
+          },
+          "to": [
+            { "key_code": "r", "modifiers": ["command"] }
+          ],
+          "conditions": [{
+            "type": "frontmost_application_if",
+            "bundle_identifiers": ["com.google.Chrome"]
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "t",
+            "modifiers": { "mandatory": ["control"] }
+          },
+          "to": [
+            { "key_code": "t", "modifiers": ["command"] }
+          ],
+          "conditions": [{
+            "type": "frontmost_application_if",
+            "bundle_identifiers": ["com.google.Chrome"]
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "w",
+            "modifiers": { "mandatory": ["control"] }
+          },
+          "to": [
+            { "key_code": "w", "modifiers": ["command"] }
           ],
           "conditions": [{
             "type": "frontmost_application_if",
