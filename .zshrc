@@ -16,6 +16,9 @@ alias dce='docker-compose exec'
 autoload -U compinit
 compinit
 
+# カーソルを点滅するバーに設定
+echo -e -n "\x1b[\x35 q"
+
 # 履歴の共有
 setopt share_history
 
