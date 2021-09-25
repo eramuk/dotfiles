@@ -102,7 +102,13 @@ setopt interactivecomments
 
 # anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init - --no-rehash zsh)"
+if [ -x $HOME/.anyenv/bin/anyenv ]; then
+   if ! [ -f /tmp/anyenv.cache ]; then
+     anyenv init - --no-rehash zsh > /tmp/anyenv.cache
+     zcompile /tmp/anyenv.cache
+   fi
+   source /tmp/anyenv.cache
+fi
 
 # direnv
 export EDITOR=vim
