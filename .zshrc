@@ -26,6 +26,12 @@ setopt share_history
 # C-d で終了しない
 set -o ignoreeof
 
+# C-s のスクリーンロックを無効化
+if [[ -t 0 ]]; then
+  stty stop undef
+  stty start undef
+fi
+
 # 区切り文字
 autoload -Uz select-word-style
 select-word-style default
@@ -161,48 +167,44 @@ FZF-EOF"
 }
 
 # tmux
-if [[ ! -n $TMUX && $- == *l* ]]; then
-  # get the IDs
-  ID="`tmux list-sessions 2>/dev/null`"
-  if [[ -z "$ID" ]]; then
-    tmux new-session
-  else
-    create_new_session="Create New Session"
-    ID="$ID\n${create_new_session}:"
-    ID="`echo $ID | fzf +s --reverse`"
-    ID="`echo $ID | cut -d: -f1`"
-    if [[ "$ID" = "${create_new_session}" ]]; then
+if [[ -x /usr/bin/tmux ]]; then
+  # セッション開始/取得
+  if [[ ! -n $TMUX && $- == *l* ]]; then
+    ID="`tmux list-sessions 2>/dev/null`"
+    if [[ -z "$ID" ]]; then
       tmux new-session
-    elif [[ -n "$ID" ]]; then
-      tmux attach-session -t "$ID"
     else
-      :  # Start terminal normally
+      create_new_session="Create New Session"
+      ID="$ID\n${create_new_session}:"
+      ID="`echo $ID | fzf +s --reverse`"
+      ID="`echo $ID | cut -d: -f1`"
+      if [[ "$ID" = "${create_new_session}" ]]; then
+        tmux new-session
+      elif [[ -n "$ID" ]]; then
+        tmux attach-session -t "$ID"
+      else
+        :  # Start terminal normally
+      fi
     fi
   fi
-fi
-
-## tmux で自動ロギング
-if [[ $TERM = screen ]] || [[ $TERM = screen-256color ]]; then
-  local LOGDIR=$HOME/.tmux_logs
-  local LOGFILE=$(hostname)_$(date +%Y-%m-%d_%H%M%S_%N.log)
-  local MAXFILECOUNT=100 #保存数
-  [ ! -d $LOGDIR ] && mkdir -p $LOGDIR
-  FILES=`find "$LOGDIR" -maxdepth 1 -type f -name "*.log" | sort --reverse`
-  FILECOUNT=`echo $FILES | wc -l`
-  if [[ $FILECOUNT > $MAXFILECOUNT ]]; then
-    echo $FILES | tail -n +$MAXFILECOUNT | xargs rm -f
+  
+  ## 自動ロギング
+  if [[ $TERM = screen ]] || [[ $TERM = screen-256color ]]; then
+    local LOGDIR=$HOME/.tmux_logs
+    local LOGFILE=$(hostname)_$(date +%Y-%m-%d_%H%M%S_%N.log)
+    local MAXFILECOUNT=100 #保存数
+    [ ! -d $LOGDIR ] && mkdir -p $LOGDIR
+    FILES=`find "$LOGDIR" -maxdepth 1 -type f -name "*.log" | sort --reverse`
+    FILECOUNT=`echo $FILES | wc -l`
+    if [[ $FILECOUNT > $MAXFILECOUNT ]]; then
+      echo $FILES | tail -n +$MAXFILECOUNT | xargs rm -f
+    fi
+    tmux set-option default-terminal "screen" \; \
+      pipe-pane "cat >> $LOGDIR/$LOGFILE" #\; \
+      #display-message "Started logging to $LOGDIR/$LOGFILE"
+    export TMUX_LOG=$LOGDIR/$LOGFILE
   fi
-  tmux set-option default-terminal "screen" \; \
-    pipe-pane "cat >> $LOGDIR/$LOGFILE" #\; \
-    #display-message "Started logging to $LOGDIR/$LOGFILE"
-  export TMUX_LOG=$LOGDIR/$LOGFILE
 fi
-
-# C-s のスクリーンロックを無効化
-if [[ -t 0 ]]; then
-  stty stop undef
-  stty start undef
-fi
-
+  
 rehash
 
