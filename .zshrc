@@ -101,18 +101,20 @@ setopt EXTENDED_HISTORY
 setopt interactivecomments
 
 # anyenv
-export PATH="$HOME/.anyenv/bin:$PATH"
 if [ -x $HOME/.anyenv/bin/anyenv ]; then
-   if ! [ -f /tmp/anyenv.cache ]; then
-     anyenv init - --no-rehash zsh > /tmp/anyenv.cache
-     zcompile /tmp/anyenv.cache
-   fi
-   source /tmp/anyenv.cache
+  export PATH="$HOME/.anyenv/bin:$PATH"
+  if ! [ -f /tmp/anyenv.cache ]; then
+    anyenv init - --no-rehash zsh > /tmp/anyenv.cache
+    zcompile /tmp/anyenv.cache
+  fi
+  source /tmp/anyenv.cache
 fi
 
 # direnv
-export EDITOR=vim
-eval "$(direnv hook zsh)"
+if [ -x /usr/bin/direnv -o -x /usr/local/bin/direnv ]; then
+  export EDITOR=vim
+  eval "$(direnv hook zsh)"
+fi
 
 # golang
 export GOPATH="$HOME/go"
@@ -179,7 +181,7 @@ if [[ ! -n $TMUX && $- == *l* ]]; then
 fi
 
 ## tmux で自動ロギング
-if [[ $TERM = screen ]] || [[ $TERM = screen-256color ]] ; then
+if [[ $TERM = screen ]] || [[ $TERM = screen-256color ]]; then
   local LOGDIR=$HOME/.tmux_logs
   local LOGFILE=$(hostname)_$(date +%Y-%m-%d_%H%M%S_%N.log)
   local MAXFILECOUNT=100 #保存数
