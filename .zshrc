@@ -110,6 +110,9 @@ setopt interactivecomments
 # anyenv
 if [[ -x $HOME/.anyenv/bin/anyenv ]]; then
   export PATH="$HOME/.anyenv/bin:$PATH"
+fi
+
+if `type anyenv &>/dev/null`; then
   if ! [ -f /tmp/anyenv.cache ]; then
     anyenv init - --no-rehash zsh > /tmp/anyenv.cache
     zcompile /tmp/anyenv.cache
@@ -118,7 +121,7 @@ if [[ -x $HOME/.anyenv/bin/anyenv ]]; then
 fi
 
 # direnv
-if [[ -x /usr/bin/direnv || -x /usr/local/bin/direnv ]]; then
+if `type direnv &>/dev/null`; then
   export EDITOR=vim
   eval "$(direnv hook zsh)"
 fi
@@ -167,7 +170,7 @@ FZF-EOF"
 }
 
 # tmux
-if [[ -x /usr/bin/tmux || -x /usr/local/bin/tmux ]]; then
+if `type tmux &>/dev/null`; then
   # セッション開始/取得
   if [[ ! -n $TMUX && $- == *l* ]]; then
     ID="`tmux list-sessions 2>/dev/null`"
