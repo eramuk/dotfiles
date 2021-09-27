@@ -108,7 +108,7 @@ setopt EXTENDED_HISTORY
 setopt interactivecomments
 
 # anyenv
-if [ -x $HOME/.anyenv/bin/anyenv ]; then
+if [[ -x $HOME/.anyenv/bin/anyenv ]]; then
   export PATH="$HOME/.anyenv/bin:$PATH"
   if ! [ -f /tmp/anyenv.cache ]; then
     anyenv init - --no-rehash zsh > /tmp/anyenv.cache
@@ -118,7 +118,7 @@ if [ -x $HOME/.anyenv/bin/anyenv ]; then
 fi
 
 # direnv
-if [ -x /usr/bin/direnv -o -x /usr/local/bin/direnv ]; then
+if [[ -x /usr/bin/direnv || -x /usr/local/bin/direnv ]]; then
   export EDITOR=vim
   eval "$(direnv hook zsh)"
 fi
@@ -167,7 +167,7 @@ FZF-EOF"
 }
 
 # tmux
-if [[ -x /usr/bin/tmux ]]; then
+if [[ -x /usr/bin/tmux || -x /usr/local/bin/tmux ]]; then
   # セッション開始/取得
   if [[ ! -n $TMUX && $- == *l* ]]; then
     ID="`tmux list-sessions 2>/dev/null`"
@@ -189,7 +189,7 @@ if [[ -x /usr/bin/tmux ]]; then
   fi
   
   ## 自動ロギング
-  if [[ $TERM = screen ]] || [[ $TERM = screen-256color ]]; then
+  if [[ $TERM = screen || $TERM = screen-256color ]]; then
     local LOGDIR=$HOME/.tmux_logs
     local LOGFILE=$(hostname)_$(date +%Y-%m-%d_%H%M%S_%N.log)
     local MAXFILECOUNT=100 #保存数
