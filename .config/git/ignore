@@ -1,0 +1,8 @@
+DS_Store
+.bundle/
+.env
+.envrc
+.vagrant/
+Thumbs.db
+docker-compose.override.yml
+vendor/bundle/
