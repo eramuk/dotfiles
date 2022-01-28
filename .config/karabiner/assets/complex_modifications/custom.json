@@ -1,0 +1,439 @@
+{
+  "title": "Custom Settings",
+  "rules": [
+    {
+      "description": "f20 -> Cmd/Ctrl",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f20",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [{
+            "key_code": "left_command"
+          }],
+          "conditions": [{
+            "type": "frontmost_application_unless",
+            "bundle_identifiers": ["com.apple.Terminal"]
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f20",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [{
+            "key_code": "left_control"
+          }],
+          "conditions": [{
+            "type": "frontmost_application_if",
+            "bundle_identifiers": ["com.apple.Terminal"]
+          }]
+        }
+      ]
+    },
+    {
+      "description": "Eisu & Kana",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_command",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [{
+            "key_code": "left_command"
+          }],
+          "to_if_alone": [{
+            "key_code": "japanese_eisuu"
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_command",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [{
+            "key_code": "right_command"
+          }],
+          "to_if_alone": [{
+            "key_code": "japanese_kana"
+          }]
+        }
+      ]
+    },
+    {
+      "description": "Emacs like",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "a",
+            "modifiers": { "mandatory": ["control"], "optional": ["any"] }
+          },
+          "to": [{
+            "key_code": "home"
+          }],
+          "conditions": [{
+            "type": "frontmost_application_if",
+            "bundle_identifiers": ["com.apple.Terminal", "com.microsoft.VSCode"]
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "b",
+            "modifiers": { "mandatory": ["control"], "optional": ["any"] }
+          },
+          "to": [{
+            "key_code": "left_arrow"
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "c",
+            "modifiers": { "mandatory": ["control"] }
+          },
+          "to": [{
+            "key_code": "c",
+            "modifiers": ["command"]
+          }],
+          "conditions": [{
+            "type": "frontmost_application_unless",
+            "bundle_identifiers": ["com.apple.Terminal"]
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": { "mandatory": ["control"], "optional": ["any"] }
+          },
+          "to": [{
+            "key_code": "end"
+          }],
+          "conditions": [{
+            "type": "frontmost_application_if",
+            "bundle_identifiers": ["com.apple.Terminal", "com.microsoft.VSCode"]
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": { "mandatory": ["control"], "optional": ["any"] }
+          },
+          "to": [{
+            "key_code": "right_arrow"
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": { "mandatory": ["control"] }
+          },
+          "to": [{
+            "key_code": "return_or_enter"
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": { "mandatory": ["control"], "optional": ["any"] }
+          },
+          "to": [{
+            "key_code": "down_arrow"
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": { "mandatory": ["control"], "optional": ["any"] }
+          },
+          "to": [{
+            "key_code": "up_arrow"
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "s",
+            "modifiers": { "mandatory": ["control"] }
+          },
+          "to": [{
+            "key_code": "s",
+            "modifiers": ["command"]
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": { "mandatory": ["control"] }
+          },
+          "to": [{
+            "key_code": "v",
+            "modifiers": ["command"]
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "x",
+            "modifiers": { "mandatory": ["control"] }
+          },
+          "to": [{
+            "key_code": "x",
+            "modifiers": ["command"]
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "z",
+            "modifiers": { "mandatory": ["control"], "optional": ["any"] }
+          },
+          "to": [{
+            "key_code": "z",
+            "modifiers": ["command"]
+          }],
+          "conditions": [{
+            "type": "frontmost_application_unless",
+            "bundle_identifiers": ["com.apple.Terminal"]
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "comma",
+            "modifiers": { "mandatory": ["control"], "optional": ["any"] }
+          },
+          "to": [{
+            "key_code": "left_arrow",
+            "modifiers": ["option"]
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "period",
+            "modifiers": { "mandatory": ["control"], "optional": ["any"] }
+          },
+          "to": [{
+            "key_code": "right_arrow",
+            "modifiers": ["option"]
+          }]
+        }
+      ]
+    },
+    {
+      "description": "Copy & Paste",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "insert",
+            "modifiers": { "mandatory": ["control"] }
+          },
+          "to": [{
+            "key_code": "c",
+            "modifiers": ["command"]
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "insert",
+            "modifiers": { "mandatory": ["shift"] }
+          },
+          "to": [{
+            "key_code": "v",
+            "modifiers": [
+              "command"
+            ]}
+          ]
+        }
+      ]
+    },
+    {
+      "description": "PC Keys",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "print_screen"
+          },
+          "to": [{
+            "key_code": "4",
+            "modifiers": ["command", "shift", "control"]
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "print_screen",
+            "modifiers": { "optional": ["shift"] }
+          },
+          "to": [
+            {
+              "key_code": "4",
+              "modifiers": ["command", "shift"]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "pause"
+          },
+          "to": [{
+            "key_code": "q",
+            "modifiers": ["command", "control"]
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "pause",
+            "modifiers": { "mandatory": ["shift"] }
+          },
+          "to": [{
+            "key_code": "eject",
+            "modifiers": ["command", "option"]
+          }]
+        }
+      ]
+    },
+    {
+      "description": "Open Application",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "1",
+            "modifiers": { "mandatory": ["control"] }
+          },
+          "to": [{
+            "shell_command": "open -a 'Google Chrome'"
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "2",
+            "modifiers": { "mandatory": ["control"] }
+          },
+          "to": [{
+            "shell_command": "open -a 'Visual Studio Code'"
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "3",
+            "modifiers": { "mandatory": ["control"] }
+          },
+          "to": [{
+            "shell_command": "open -a 'Terminal.app'"
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "4",
+            "modifiers": { "mandatory": ["control"] }
+          },
+          "to": [{
+            "shell_command": "open -a 'Slack.app'"
+          }]
+        }
+      ]
+    },
+    {
+      "description": "Google Chrome Shortcut",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": { "mandatory": ["control"] }
+          },
+          "to": [
+            { "key_code": "l", "modifiers": ["command"] }
+          ],
+          "conditions": [{
+            "type": "frontmost_application_if",
+            "bundle_identifiers": ["com.google.Chrome"]
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": { "mandatory": ["control"] }
+          },
+          "to": [
+            { "key_code": "l", "modifiers": ["command"] },
+            { "key_code": "japanese_eisuu" },
+            { "key_code": "b" },
+            { "key_code": "m" },
+            { "key_code": "spacebar" }
+          ],
+          "conditions": [{
+            "type": "frontmost_application_if",
+            "bundle_identifiers": ["com.google.Chrome"]
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "r",
+            "modifiers": { "mandatory": ["control"] }
+          },
+          "to": [
+            { "key_code": "r", "modifiers": ["command"] }
+          ],
+          "conditions": [{
+            "type": "frontmost_application_if",
+            "bundle_identifiers": ["com.google.Chrome"]
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "t",
+            "modifiers": { "mandatory": ["control"] }
+          },
+          "to": [
+            { "key_code": "t", "modifiers": ["command"] }
+          ],
+          "conditions": [{
+            "type": "frontmost_application_if",
+            "bundle_identifiers": ["com.google.Chrome"]
+          }]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "w",
+            "modifiers": { "mandatory": ["control"] }
+          },
+          "to": [
+            { "key_code": "w", "modifiers": ["command"] }
+          ],
+          "conditions": [{
+            "type": "frontmost_application_if",
+            "bundle_identifiers": ["com.google.Chrome"]
+          }]
+        }
+      ]
+    }
+  ]
+}
