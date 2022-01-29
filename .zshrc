@@ -183,7 +183,7 @@ if `type tmux &>/dev/null`; then
   
   ## 自動ロギング
   if [[ $TERM = screen || $TERM = screen-256color ]]; then
-    local LOGDIR=$HOME/.tmux_logs
+    local LOGDIR=$HOME/.tmux/logs
     local LOGFILE=$(hostname)_$(date +%Y-%m-%d_%H%M%S_%N.log)
     local MAXFILECOUNT=100 #保存数
     [ ! -d $LOGDIR ] && mkdir -p $LOGDIR
