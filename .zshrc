@@ -87,16 +87,6 @@ setopt prompt_subst
 # プロンプトの右側(RPROMPT)にメソッドの結果を表示させる
 PROMPT='%* %c`__rprompt-git-current-branch__` $ '
 
-# git completion
-case ${OSTYPE} in
-  # Mac
-  darwin*)
-    fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-    autoload -U compinit
-    compinit -u
-    ;;
-esac
-
 # history
 export HISTFILE=~/.zsh_history
 export HISTSIZE=50000
