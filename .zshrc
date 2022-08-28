@@ -87,6 +87,11 @@ setopt prompt_subst
 # プロンプトの右側(RPROMPT)にメソッドの結果を表示させる
 PROMPT='%* %c`__rprompt-git-current-branch__` $ '
 
+# git completion
+fpath=(~/.zsh/completion $fpath)
+autoload -U compinit
+compinit -u
+
 # history
 export HISTFILE=~/.zsh_history
 export HISTSIZE=50000
@@ -201,3 +206,4 @@ fi
   
 rehash
 
+eval "$(anyenv init -)"
