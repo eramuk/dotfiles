@@ -295,6 +295,25 @@
                             },
                             {
                                 "from": {
+                                    "key_code": "q",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
                                     "key_code": "s",
                                     "modifiers": {
                                         "mandatory": [
@@ -304,7 +323,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "s",
+                                        "key_code": "a",
                                         "modifiers": [
                                             "command"
                                         ]
@@ -425,39 +444,27 @@
                                 "type": "basic"
                             },
                             {
-                                "from": {
-                                    "key_code": "spacebar",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "control"
-                                        ]
-                                    }
-                                },
-                                "to": [
+                                "conditions": [
                                     {
-                                        "key_code": "tab",
-                                        "modifiers": [
-                                            "control"
-                                        ]
+                                        "bundle_identifiers": [
+                                            "com.google.Chrome"
+                                        ],
+                                        "type": "frontmost_application_unless"
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
                                 "from": {
                                     "key_code": "spacebar",
                                     "modifiers": {
                                         "mandatory": [
-                                            "shift"
+                                            "control"
                                         ]
                                     }
                                 },
                                 "to": [
                                     {
-                                        "key_code": "tab",
+                                        "key_code": "s",
                                         "modifiers": [
-                                            "control",
-                                            "shift"
+                                            "command"
                                         ]
                                     }
                                 ],
@@ -575,8 +582,8 @@
                                     {
                                         "key_code": "eject",
                                         "modifiers": [
-                                            "command",
-                                            "option"
+                                            "control",
+                                            "shift"
                                         ]
                                     }
                                 ],
@@ -693,7 +700,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "q",
+                                    "key_code": "spacebar",
                                     "modifiers": {
                                         "mandatory": [
                                             "control"
