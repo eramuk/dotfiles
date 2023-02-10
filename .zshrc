@@ -113,6 +113,7 @@ if `type anyenv &>/dev/null`; then
     zcompile /tmp/anyenv.cache
   fi
   source /tmp/anyenv.cache
+  eval "$(anyenv init -)"
 fi
 
 # direnv
@@ -206,4 +207,3 @@ fi
   
 rehash
 
-eval "$(anyenv init -)"
