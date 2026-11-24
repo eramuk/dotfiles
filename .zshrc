@@ -14,6 +14,7 @@ alias less='less -i -R'
 alias dc='docker-compose'
 alias dce='docker-compose exec'
 
+autoload -Uz add-zsh-hook
 autoload -U compinit
 compinit
 
@@ -204,6 +205,29 @@ if `type tmux &>/dev/null`; then
     export TMUX_LOG=$LOGDIR/$LOGFILE
   fi
 fi
+
+# タブ名
+if [ -n "$TMUX" ]; then
+  function tmux_rename_window() {
+    # Gitリポジトリのルートディレクトリを取得
+    local git_root=$(git rev-parse --show-toplevel 2>/dev/null)
+    if [ -n "$git_root" ]; then
+      # リポジトリ名を取得
+      local repo_name=$(basename "$git_root")
+      tmux rename-window "$repo_name"
+    else
+      # Gitリポジトリでない場合はカレントディレクトリ名
+      tmux rename-window "$(basename "$PWD")"
+    fi
+  }
+
+  # ディレクトリ変更時に自動実行
+  add-zsh-hook chpwd tmux_rename_window
+
+  # 初回起動時にも実行
+  tmux_rename_window
+fi
   
 rehash
+
 

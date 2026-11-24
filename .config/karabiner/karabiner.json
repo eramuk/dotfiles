@@ -6,13 +6,13 @@
                 "rules": [
                     {
                         "description": "Eisu & Kana",
-                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "left_command",
                                     "modifiers": { "optional": ["any"] }
                                 },
+                                "parameters": { "basic.to_if_alone_timeout_milliseconds": 200 },
                                 "to": [{ "key_code": "left_command" }],
                                 "to_if_alone": [{ "key_code": "japanese_eisuu" }],
                                 "type": "basic"
@@ -22,6 +22,7 @@
                                     "key_code": "right_command",
                                     "modifiers": { "optional": ["any"] }
                                 },
+                                "parameters": { "basic.to_if_alone_timeout_milliseconds": 200 },
                                 "to": [{ "key_code": "right_command" }],
                                 "to_if_alone": [{ "key_code": "japanese_kana" }],
                                 "type": "basic"
@@ -554,7 +555,7 @@
                         },
                         {
                             "from": { "key_code": "left_option" },
-                            "to": [{ "key_code": "japanese_eisuu" }]
+                            "to": [{ "key_code": "left_command" }]
                         },
                         {
                             "from": { "key_code": "right_command" },
@@ -562,7 +563,7 @@
                         },
                         {
                             "from": { "key_code": "right_option" },
-                            "to": [{ "key_code": "japanese_kana" }]
+                            "to": [{ "key_code": "right_command" }]
                         }
                     ]
                 },
