@@ -1,0 +1,2 @@
+[alias]
+	home = !git fetch origin && git switch --detach origin/main
