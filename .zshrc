@@ -5,8 +5,6 @@ bindkey '\e[1~' beginning-of-line
 bindkey '\e[4~' end-of-line
 bindkey '\e[3~' delete-char-or-list
 
-[[ -f ~/.localrc ]] && source ~/.localrc
-
 alias ls='ls --color=auto'
 alias ll='ls -la'
 alias less='less -i -R'
@@ -103,29 +101,11 @@ setopt EXTENDED_HISTORY
 # enable comment in command line
 setopt interactivecomments
 
-# anyenv
-if [[ -x $HOME/.anyenv/bin/anyenv ]]; then
-  export PATH="$HOME/.anyenv/bin:$PATH"
-fi
-
-if `type anyenv &>/dev/null`; then
-  if ! [ -f /tmp/anyenv.cache ]; then
-    anyenv init - --no-rehash zsh > /tmp/anyenv.cache
-    zcompile /tmp/anyenv.cache
-  fi
-  source /tmp/anyenv.cache
-  eval "$(anyenv init -)"
-fi
-
 # direnv
 if `type direnv &>/dev/null`; then
   export EDITOR=vim
   eval "$(direnv hook zsh)"
 fi
-
-# golang
-export GOPATH="$HOME/go"
-export PATH="$GOPATH/bin:$PATH"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
